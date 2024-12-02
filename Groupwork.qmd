@@ -11,27 +11,22 @@ Lejing Li, Yihan Xing, Zihui Chen
 
 ## Link to the shiny app website on shinyapps.io
 
-https://zihui1024.shinyapps.io/final1/
+<https://zihui1024.shinyapps.io/final3/>
 
 ## Clear documentation of each group member’s contributions
 
 ### Lejing Li: Data Set Construction
+
 Were 10 tables explored? Was 1 variable created from each table? Are the variables created meaningful to be compared across geographic units?
 
-
 ### Zihui Chen, Lejing Li: “Variables” tabPanel
-Zihui Chen:
-How well are the data communicated in tables/plots? 
-Is at least one plot made in plotly? 
-Did the text clearly and sufficiently summarize the data construction process?
 
-Lejing Li:
-Are the tables and plots well made (variable names for axes, titles, etc.)? 
+Zihui Chen: How well are the data communicated in tables/plots? Is at least one plot made in plotly? Did the text clearly and sufficiently summarize the data construction process?
 
-### Yihan Xing, Lejing Li: “Unsupervised Learning” tabPanel 
-Yihan Xing:
-How well are the data communicated in tables/plots? 
-Lejing Li - Are the plots well made (variable names for axes, titles, etc.)
+Lejing Li: Are the tables and plots well made (variable names for axes, titles, etc.)?
 
-Lejing Li:
-Were the results correctly interpreted in text?
+### Yihan Xing, Lejing Li: “Unsupervised Learning” tabPanel
+
+Yihan Xing: How well are the data communicated in tables/plots? Lejing Li - Are the plots well made (variable names for axes, titles, etc.)
+
+Lejing Li: Were the results correctly interpreted in text?
