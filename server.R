@@ -151,8 +151,7 @@ shinyServer(function(input, output) {
     
     return(summary_table)
   })
-  
-  # Render the spatial map for any selected variable
+
   # Render the spatial map for any selected variable using usmap
   output$spatialMap <- renderPlotly({
     selected_var <- input$var
@@ -174,7 +173,7 @@ shinyServer(function(input, output) {
       color = "white"
     ) +
       scale_fill_continuous(
-        low = "lightblue", high = "darkblue", 
+        low = "white", high = "darkblue", 
         name = gsub("_", " ", selected_var)
       ) +
       labs(

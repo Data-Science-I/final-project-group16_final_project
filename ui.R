@@ -2,11 +2,11 @@ library(shiny)
 library(plotly)
 
 shinyUI(fluidPage(
-  titlePanel("Interactive Data Exploration"),
+  titlePanel("Interactive Data Exploration"), # Title of the app
   
   sidebarLayout(
     sidebarPanel(
-      h4("Data Overview"),
+      h4("Data Overview"), # Section header for the sidebar
       p("This dataset contains information about 52 states in the USA, including various demographic and economic indicators such as:"),
       tags$ul(
         tags$li("State names"),
@@ -18,7 +18,7 @@ shinyUI(fluidPage(
       ),
       p("Variables were created or measured from publicly available data sources, including proportions (e.g., old population, white population) and numerical metrics (e.g., median income)."),
       
-      # Select a variable for the "Variables" tab
+      # Dropdown menu to select a variable for display
       selectInput(
         "var",
         "Choose a variable to display:",
@@ -35,12 +35,12 @@ shinyUI(fluidPage(
           "Internet Household (%)" = "internet_household"
         )
       ),
-      sliderInput("bins", "Number of bins:", min = 5, max = 50, value = 20),
+      sliderInput("bins", "Number of bins:", min = 5, max = 50, value = 20), # Slider for selecting histogram bin size
       
-      # Additional controls for "Unsupervised Learning"
+      # Controls for the Unsupervised Learning tab, conditionally displayed
       conditionalPanel(
-        condition = "input.tabs == 'Unsupervised Learning'",
-        h4("Cluster Analysis Controls"),
+        condition = "input.tabs == 'Unsupervised Learning'", # Shows only when the Unsupervised Learning tab is selected
+        h4("Cluster Analysis Controls"), # Header for cluster controls
         selectInput(
           "clustering_vars",
           "Select Variables for Clustering:",
@@ -56,36 +56,36 @@ shinyUI(fluidPage(
             "Below Poverty (%)" = "below_poverty",
             "Internet Household (%)" = "internet_household"
           ),
-          selected = c("old_population", "local_workers", "median_income", "white_population"),
-          multiple = TRUE
+          selected = c("old_population", "local_workers", "median_income", "white_population"), # Default selected variables
+          multiple = TRUE # Allows selecting multiple variables for clustering
         ),
-        sliderInput("num_clusters", "Number of Clusters (k):", min = 2, max = 10, value = 3)
+        sliderInput("num_clusters", "Number of Clusters (k):", min = 2, max = 10, value = 3) # Slider for selecting the number of clusters
       )
     ),
     
     mainPanel(
       tabsetPanel(
-        id = "tabs",
+        id = "tabs", # ID for the main tabs to enable conditional display of elements
         
         # Variables Section
         tabPanel("Variables",
                  tabsetPanel(
                    tabPanel("Variable Descriptions", 
-                            uiOutput("dynamicDescription")
+                            uiOutput("dynamicDescription") # Placeholder for dynamic descriptions of variables
                    ),
-                   tabPanel("Histogram", plotlyOutput("interactivePlot")),
-                   tabPanel("Summary Table", tableOutput("summaryTable")),
-                   tabPanel("Map", plotlyOutput("spatialMap", height = "600px"))
+                   tabPanel("Histogram", plotlyOutput("interactivePlot")), # Plotly output for the histogram
+                   tabPanel("Summary Table", tableOutput("summaryTable")), # Table output for variable summaries
+                   tabPanel("Map", plotlyOutput("spatialMap", height = "600px")) # Plotly map output for geographic data
                  )
         ),
         
         # Unsupervised Learning Section
         tabPanel("Unsupervised Learning",
-                 h4("Cluster Analysis"),
-                 plotlyOutput("clusterMap", height = "600px"),
-                 plotOutput("screePlot", height = "400px"),
-                 h4("Interpretation of Results"),
-                 textOutput("clusterSummary")
+                 h4("Cluster Analysis"), # Header for the clustering section
+                 plotlyOutput("clusterMap", height = "600px"), # Plotly output for the clustering map
+                 plotOutput("screePlot", height = "400px"), # Plot output for the scree plot
+                 h4("Interpretation of Results"), # Header for the cluster interpretation
+                 textOutput("clusterSummary") # Text output for cluster analysis summaries
         )
       )
     )
